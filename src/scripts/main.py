@@ -61,10 +61,8 @@ while True:
         
         # data from sensor
         temp, humidity = get_data()
-        # timestamp = int(mktime(datetime.now().timetuple()))
         data = {
             "localisation": 'KrakowRPI,PL',
-            # "time": timestamp,
             "temp": temp,
             "humidity": humidity,
             "type": "rpi",
@@ -77,10 +75,8 @@ while True:
             w = observation.get_weather()
             temp = w.get_temperature('celsius')['temp']
             humidity = w.get_humidity()
-            # timestamp = int(mktime(datetime.now().timetuple()))
             data = {
-                "localisation": city[:-3], # bez znakow okreslajacych panstwo
-                # "time": timestamp,
+                "localisation": city[:-3],
                 "temp": temp,
                 "humidity": humidity,
                 "type": "api",

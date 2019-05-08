@@ -18,13 +18,13 @@ public class Chart {
     private static SwingWrapper<XYChart> sw;
     private static Map<String, Queue<Double>> xQueueMap = new HashMap<>();
     private static Map<String, Queue<Double>> yQueueMap = new HashMap<>();
-    private static final List<String> CITIES = Arrays.asList("London", "KrakowRPI", "Stockholm");
+    private static final List<String> CITIES = Arrays.asList("KrakowRPI", "London", "Stockholm", "Lima", "Tynda");
 
     public static void initChart() {
         chart = new XYChartBuilder()
                 .width(1900)
                 .height(900)
-                .title("Humidity analysis")
+                .title(ChartConstants.CHART_PROPERTY + " analysis")
                 .build();
 
         LinkedList<Double> yValues = Stream.of(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
