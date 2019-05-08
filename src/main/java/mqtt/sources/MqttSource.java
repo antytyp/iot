@@ -1,6 +1,6 @@
 package mqtt.sources;
 
-import mqtt.MqttConstants;
+import mqtt.constants.MqttConstants;
 import org.apache.flink.api.common.functions.StoppableFunction;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
@@ -27,6 +27,7 @@ public class MqttSource implements SourceFunction<String>, StoppableFunction {
         MqttConnectOptions options = new MqttConnectOptions();
         options.setAutomaticReconnect(true);
         options.setCleanSession(true);
+        options.setConnectionTimeout(200);
         client = new MqttClient(MqttConstants.SERVER_URI, MqttConstants.SUBSCRIBER_ID);
         client.connect();
 
